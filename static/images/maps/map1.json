@@ -24,7 +24,7 @@
         }, 
         {
          "draworder":"topdown",
-         "height":50,
+         "height":0,
          "name":"itemlayer",
          "objects":[
                 {
@@ -34,7 +34,7 @@
                  "name":"",
                  "properties":
                     {
-                     "text":"Welcome to my game!",
+                     "text":"#Welcome to my game! I hope you will enjoy playing this little piece of concept I've made. #This text is long to see if I can show it in parts and block player movement while showing this. #Try moving for a bit. It doesn't work, right? #That means it's working! Let's make this text a bit longer, just for good measure. #I know it's getting annoying, but I've got to do this, mate.",
                      "type":"text"
                     },
                  "propertytypes":
@@ -52,7 +52,7 @@
          "opacity":1,
          "type":"objectgroup",
          "visible":true,
-         "width":50,
+         "width":0,
          "x":0,
          "y":0
         }],

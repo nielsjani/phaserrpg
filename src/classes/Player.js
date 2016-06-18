@@ -1,6 +1,6 @@
-export default class Player extends Phaser.Sprite{
+export default class Player extends Phaser.Sprite {
 
-    constructor(state, x, y, imageRef){
+    constructor(state, x, y, imageRef) {
         super(state.game, x, y, imageRef);
 
         this.state = state;
@@ -13,39 +13,42 @@ export default class Player extends Phaser.Sprite{
 
         this.scale.setTo(3);
 
+        this.createIdlePoses();
+    }
+
+    createIdlePoses() {
         this.idlePoses = new Map();
         this.idlePoses.set("left", 1);
         this.idlePoses.set("right", 4);
         this.idlePoses.set("down", 7);
         this.idlePoses.set("up", 10);
-
-        //this.state.game.add.sprite(x,y, imageRef);
-        //this.state.stage.addChild(this);
     }
 
-    update(){
+    update() {
         this.body.velocity.x = 0;
         this.body.velocity.y = 0;
 
-        if (this.state.cursors.left.isDown) {
-            this.body.velocity.x -= 600;
-            this.animations.play("left");
-            this.lastDirection = "left";
-        } else if (this.state.cursors.right.isDown) {
-            this.body.velocity.x += 600;
-            this.animations.play("right");
-            this.lastDirection = "right";
-        } else if (this.state.cursors.up.isDown) {
-            this.body.velocity.y -= 600;
-            this.animations.play("up");
-            this.lastDirection = "up";
-        } else if (this.state.cursors.down.isDown) {
-            this.body.velocity.y += 600;
-            this.animations.play("down");
-            this.lastDirection = "down";
-        } else {
-            this.animations.stop();
-            this.frame = this.lastDirection ? this.idlePoses.get(this.lastDirection) : 7;
+        if(!this.state.displayingText) {
+            if (this.state.cursors.left.isDown) {
+                this.body.velocity.x -= 600;
+                this.animations.play("left");
+                this.lastDirection = "left";
+            } else if (this.state.cursors.right.isDown) {
+                this.body.velocity.x += 600;
+                this.animations.play("right");
+                this.lastDirection = "right";
+            } else if (this.state.cursors.up.isDown) {
+                this.body.velocity.y -= 600;
+                this.animations.play("up");
+                this.lastDirection = "up";
+            } else if (this.state.cursors.down.isDown) {
+                this.body.velocity.y += 600;
+                this.animations.play("down");
+                this.lastDirection = "down";
+            } else {
+                this.animations.stop();
+                this.frame = this.lastDirection ? this.idlePoses.get(this.lastDirection) : 7;
+            }
         }
     }
 }

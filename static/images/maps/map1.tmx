@@ -114,7 +114,7 @@
  <objectgroup name="itemlayer">
   <object id="2" gid="1232" x="144" y="80" width="16" height="16">
    <properties>
-    <property name="text" value="Welcome to my game!"/>
+    <property name="text" value="#Welcome to my game! I hope you will enjoy playing this little piece of concept I've made. #This text is long to see if I can show it in parts and block player movement while showing this. #Try moving for a bit. It doesn't work, right? #That means it's working! Let's make this text a bit longer, just for good measure. #I know it's getting annoying, but I've got to do this, mate."/>
     <property name="type" value="text"/>
    </properties>
   </object>
