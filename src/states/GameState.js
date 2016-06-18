@@ -1,4 +1,5 @@
 import TextItem from "../classes/TextItem.js";
+import TextDisplay from "../classes/TextDisplay";
 import Player from "../classes/Player.js";
 
 export default class GameState extends Phaser.State {
@@ -34,32 +35,22 @@ export default class GameState extends Phaser.State {
         if (this.spacebar.justDown) {
             this.items.children.forEach(child => {
                 if (child.overlap(this.player)) {
-                    if (!this.displayingText) {
-                        console.log(child.text);
-                        this.style = {
-                            font: 'bold 24pt Arial',
-                            fill: 'white',
-                            wordWrap: true,
-                            wordWrapWidth: 750,
-                            backgroundColor: "blue",
-                            boundsAlignH: "center",
-                            boundsAlignV: "middle"
-                        };
-                        this.textToDisplay = child.text.split("#");
-                        this.textDisplayingPart = 1;
-                        this.text = this.add.text(0, 0, this.textToDisplay[this.textDisplayingPart], this.style);
-                        this.text.setTextBounds(0, this.camera.y + (this.camera.height - 150), 800, 100);
-                        this.displayingText = true;
-                    } else if(this.textDisplayingPart+1<this.textToDisplay.length){
-                        this.text.setText(this.textToDisplay[this.textDisplayingPart+1]);
-                        this.text.setStyle(this.style);
-                        this.textDisplayingPart+=1;
-                    } else {
-                        this.text.destroy();
-                        this.displayingText = false;
-                    }
+                    this.handleChildOverlap(child);
                 }
             });
+        }
+    }
+
+    handleChildOverlap(child) {
+        if (!this.displayingText) {
+            this.currentlyDisplayedText = new TextDisplay(this, 0, 0, child.text);
+            this.add.existing(this.currentlyDisplayedText);
+            this.displayingText = true;
+        } else if (this.currentlyDisplayedText.hasMore()) {
+            this.currentlyDisplayedText.updateTextbox();
+        } else {
+            this.currentlyDisplayedText.destroy();
+            this.displayingText = false;
         }
     }
 
