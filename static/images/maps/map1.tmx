@@ -130,6 +130,7 @@
    <properties>
     <property name="map" value="map2"/>
     <property name="sprite" value="door"/>
+    <property name="tileset" value="tileset1"/>
     <property name="type" value="door"/>
     <property name="x" value="320"/>
     <property name="y" value="160"/>

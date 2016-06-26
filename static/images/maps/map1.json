@@ -84,6 +84,7 @@
                     {
                      "map":"map2",
                      "sprite":"door",
+                     "tileset":"tileset1",
                      "type":"door",
                      "x":"320",
                      "y":"160"
@@ -92,6 +93,7 @@
                     {
                      "map":"string",
                      "sprite":"string",
+                     "tileset":"string",
                      "type":"string",
                      "x":"string",
                      "y":"string"

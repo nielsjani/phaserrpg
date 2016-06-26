@@ -8,7 +8,7 @@ export default class MapCreator {
 
     createMap(state) {
         state.map = state.add.tilemap(state.mapname);
-        state.map.addTilesetImage("pokemon1", "pokemon1");
+        state.map.addTilesetImage(state.tileset, state.tileset);
         state.groundLayer = state.map.createLayer("groundlayer");
         state.collisionLayer = state.map.createLayer("collisionlayer");
         this.addItems(state);
@@ -36,7 +36,7 @@ export default class MapCreator {
                 items.push(new TextItem(item.x * 3, (item.y - state.map.tileHeight) * 3, item.properties.sprite, item.properties.text));
             }
             if (item.properties.type === "door") {
-                items.push(new DoorItem(item.x * 3, (item.y - state.map.tileHeight) * 3, item.properties.sprite, item.properties.map, item.properties.x, item.properties.y));
+                items.push(new DoorItem(item.x * 3, (item.y - state.map.tileHeight) * 3, item.properties.sprite, item.properties.map, item.properties.x, item.properties.y, item.properties.tileset));
             }
         });
         return items;
