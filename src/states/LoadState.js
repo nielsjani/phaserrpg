@@ -18,7 +18,7 @@ export default class LoadState extends Phaser.State {
 
 
     create() {
-        this.state.start("GameState", false, false, this.map, this.tileset);
+        this.state.start("GameState", true, false, this.map, this.tileset);
     }
 }
 

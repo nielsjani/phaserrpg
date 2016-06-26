@@ -38,8 +38,4 @@ export default class GameState extends Phaser.State {
 
         this.camera.follow(this.player);
     }
-
-    shutdown() {
-        //kill/destroy all resources
-    }
 }
